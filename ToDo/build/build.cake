@@ -12,11 +12,11 @@ var configuration = Argument("configuration", "Release");
 // FILES & DIRECTORIES
 //////////////////////////////////////////////////////////////////////
 
-var solutionFile = File("./ToDo.sln");
-var androidProject = File("./Droid/ToDo.Droid.csproj");
-var androidBin = Directory("./Droid/bin") + Directory(configuration);
-var iOSProject = File("./iOS/ToDo.iOS.csproj");
-var iOSBin = Directory("./iOS/bin") + Directory(configuration);
+var solutionFile = File("../TodoPCL.sln");
+var androidProject = File("../Todo.Android/Todo.Android.csproj");
+var androidBin = Directory("../Todo.Android/bin") + Directory(configuration);
+var iOSProject = File("../Todo.iOS/ToDo.iOS.csproj");
+var iOSBin = Directory("../Todo.iOS/bin/iPhone") + Directory(configuration);
 
 //////////////////////////////////////////////////////////////////////
 // PREPARATION
@@ -29,21 +29,68 @@ Task("Clean")
     CleanDirectory(iOSBin);
 });
 
+Task("Restore-NuGet")
+    .IsDependentOn("Clean")
+    .Does(() =>
+{
+    NuGetRestore(solutionFile);
+});
+
 //////////////////////////////////////////////////////////////////////
 // ANDROID
 //////////////////////////////////////////////////////////////////////
+
+Task("Build Android")
+    .IsDependentOn("Restore-NuGet")
+    .Does(() =>
+{
+ 	MSBuild(androidProject, settings =>
+        settings.SetConfiguration(configuration).WithTarget("SignAndroidPackage"));
+});
 
 //////////////////////////////////////////////////////////////////////
 // IOS
 //////////////////////////////////////////////////////////////////////
 
+Task("Build iOS")
+    .WithCriteria(IsRunningOnUnix())
+    .IsDependentOn("Build Android")
+    .Does(() =>
+{
+    MSBuild (iOSProject, settings => 
+	    settings.SetConfiguration(configuration)
+    		.WithProperty("Platform", "iPhone")
+    		.WithProperty("OutputPath", $"bin/iPhone/{configuration}/"));
+});
+
+//////////////////////////////////////////////////////////////////////
+// TESTS
+//////////////////////////////////////////////////////////////////////
+
+Task("Build tests")
+    .IsDependentOn("Build iOS")
+    .Does(() =>
+{
+});
+
+Task("Run unit tests")
+    .IsDependentOn("Build tests")
+    .Does(() =>
+{
+});
+
+Task("Run UI tests")
+    .IsDependentOn("Run unit tests")
+    .Does(() =>
+{
+});
 
 //////////////////////////////////////////////////////////////////////
 // TASK TARGETS
 //////////////////////////////////////////////////////////////////////
 
 Task("Default")
-    .IsDependentOn("Clean");
+    .IsDependentOn("Run UI tests");
 
 //////////////////////////////////////////////////////////////////////
 // EXECUTION
