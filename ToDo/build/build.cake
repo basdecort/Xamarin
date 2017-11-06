@@ -12,11 +12,11 @@ var configuration = Argument("configuration", "Release");
 // FILES & DIRECTORIES
 //////////////////////////////////////////////////////////////////////
 
-var solutionFile = File("../TodoPCL.sln");
-var androidProject = File("../Todo.Android/Todo.Android.csproj");
-var androidBin = Directory("../Todo.Android/bin") + Directory(configuration);
-var iOSProject = File("../Todo.iOS/ToDo.iOS.csproj");
-var iOSBin = Directory("../Todo.iOS/bin/iPhone") + Directory(configuration);
+var solutionFile = File("../Todo.sln");
+var androidProject = File("../Droid/Todo.Droid.csproj");
+var androidBin = Directory("../Droid/bin") + Directory(configuration);
+var iOSProject = File("../iOS/ToDo.iOS.csproj");
+var iOSBin = Directory("../iOS/bin/iPhone") + Directory(configuration);
 
 //////////////////////////////////////////////////////////////////////
 // PREPARATION
