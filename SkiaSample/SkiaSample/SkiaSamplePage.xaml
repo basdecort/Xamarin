@@ -4,5 +4,5 @@
     xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
     xmlns:local="clr-namespace:SkiaSample" 
     x:Class="SkiaSample.SkiaSamplePage">
-   <skia:SKCanvasView x:Name="Canvas" PaintSurface="Handle_PaintSurface"/>
+   <skia:SKCanvasView PaintSurface="Handle_PaintSurface"/>
 </ContentPage>
