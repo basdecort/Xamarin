@@ -106,6 +106,15 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.2.5.0.121934\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+    <Reference Include="SkiaSharp">
+      <HintPath>..\packages\SkiaSharp.1.59.2\lib\MonoAndroid\SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.Android">
+      <HintPath>..\packages\SkiaSharp.Views.1.59.2\lib\MonoAndroid\SkiaSharp.Views.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.Forms">
+      <HintPath>..\packages\SkiaSharp.Views.Forms.1.59.2\lib\MonoAndroid\SkiaSharp.Views.Forms.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SkiaSample\SkiaSample.csproj">
