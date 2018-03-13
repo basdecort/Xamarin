@@ -20,6 +20,7 @@ namespace DrawIt.Services
         {
             try
             {
+                // If you're using a trial, make sure to pass the westcentralus api base URL
                 var visionClient = new VisionServiceClient(API_Key, "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0");
 
                 VisualFeature[] features = { VisualFeature.Tags, VisualFeature.Categories, VisualFeature.Description };

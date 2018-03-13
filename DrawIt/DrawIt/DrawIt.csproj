@@ -49,6 +49,7 @@
     </Compile>
     <Compile Include="FingerPaintPolyline.cs" />
     <Compile Include="Services\ComputerVisionService.cs" />
+    <Compile Include="ColorFills.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
