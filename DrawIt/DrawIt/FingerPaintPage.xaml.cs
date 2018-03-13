@@ -12,6 +12,7 @@ using System.Reflection;
 using System.IO;
 using System.Threading.Tasks;
 using DrawIt.Services;
+using Newtonsoft.Json;
 
 namespace SkiaSharpFormsDemos.Paths
 {
@@ -218,7 +219,10 @@ namespace SkiaSharpFormsDemos.Paths
 
             if (result != null)
             {
-                
+                var json = JsonConvert.SerializeObject(result);
+                await DisplayAlert("Result", json, "OK");
+            }else{
+                await DisplayAlert("Result", "An error occured, make sure the API key is valid for the BaseUrl.", "OK");
             }
         }
 
