@@ -122,8 +122,6 @@ namespace SkiaSharpFormsDemos.Paths
                 canvas.DrawPath(polyline.Path, paint);
             }
 
-            PaintHouse(args);
-
             if (_takeSnapShot)
             {
                 _image = args.Surface.Snapshot();
