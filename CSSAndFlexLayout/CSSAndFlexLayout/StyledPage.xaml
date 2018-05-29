@@ -4,16 +4,16 @@
         <StyleSheet Source="Styles/Styles.css"/>  
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout Orientation="Horizontal">
+        <StackLayout StyleClass="formContainer">
+            <StackLayout StyleClass="row" Orientation="Horizontal">
                 <Label Text="Name" />
-                <Entry />
+                <Entry HorizontalOptions="EndAndExpand" />
             </StackLayout>
-            <StackLayout Orientation="Horizontal">
+            <StackLayout StyleClass="row" Orientation="Horizontal">
                 <Label Text="Do you work at Info Support?" />
-                <Switch />
+                <Switch HorizontalOptions="EndAndExpand" />
             </StackLayout>
-            <Button Text="Hit me!" />
+            <Button StyleClass="Hit" Text="Hit me!" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

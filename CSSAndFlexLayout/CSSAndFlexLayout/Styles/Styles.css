@@ -1,1 +1,19 @@
-﻿
+﻿^ContentPage
+{
+    background-color: cornflowerblue;
+}
+.formContainer{
+    margin: 30;
+}
+stacklayout.row
+{
+    margin: 10 0;
+}
+^Entry{
+    width: 200;
+}
+button.Hit{
+    color: white;
+    margin: 100 10;
+    background-color: darkblue;
+}
