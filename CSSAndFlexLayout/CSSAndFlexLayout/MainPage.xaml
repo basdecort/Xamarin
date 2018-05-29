@@ -1,7 +1,30 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:CSSAndFlexLayout" x:Class="CSSAndFlexLayout.MainPage">
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+<FlexLayout Direction="Column" Wrap="Wrap" AlignContent="Start" AlignItems="Start" JustifyContent="Start" >
+
+    <StackLayout FlexLayout.Basis="100%">
+         <Label Text="Menu 1"/>
+         <Label Text="Menu 2"/>
+         <Label Text="Menu 3"/>
     </StackLayout>
+        
+   <Frame FlexLayout.Grow="1" FlexLayout.Order="1" />
+   <StackLayout BackgroundColor="Fuchsia" FlexLayout.Order="2" FlexLayout.AlignSelf="Stretch" Padding="10" >
+      <Label Text="5"/> 
+   </StackLayout> 
+
+   <StackLayout BackgroundColor="Navy" FlexLayout.Basis="600" Padding="10">
+      <Label Text="1" /> 
+   </StackLayout>
+   <StackLayout BackgroundColor="Green" Padding="10">
+      <Label Text="2" /> 
+   </StackLayout>
+   <StackLayout BackgroundColor="Red" Padding="10">
+      <Label Text="3" /> 
+   </StackLayout>
+   <StackLayout BackgroundColor="Purple" Padding="10" >
+      <Label Text="4"/> 
+   </StackLayout>
+
+</FlexLayout>
 </ContentPage>

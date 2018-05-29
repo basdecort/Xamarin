@@ -82,6 +82,16 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\drawable\cat1.png" />
+    <AndroidResource Include="Resources\drawable\cat10.png" />
+    <AndroidResource Include="Resources\drawable\cat2.png" />
+    <AndroidResource Include="Resources\drawable\cat3.png" />
+    <AndroidResource Include="Resources\drawable\cat4.png" />
+    <AndroidResource Include="Resources\drawable\cat5.png" />
+    <AndroidResource Include="Resources\drawable\cat6.png" />
+    <AndroidResource Include="Resources\drawable\cat7.png" />
+    <AndroidResource Include="Resources\drawable\cat8.png" />
+    <AndroidResource Include="Resources\drawable\cat9.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

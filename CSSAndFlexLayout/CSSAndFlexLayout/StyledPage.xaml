@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CSSAndFlexLayout.StyledPage">
+    <ContentPage.Resources>
+        <StyleSheet Source="Styles/Styles.css"/>  
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Name" />
+                <Entry />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Do you work at Info Support?" />
+                <Switch />
+            </StackLayout>
+            <Button Text="Hit me!" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
