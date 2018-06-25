@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:CertificatePinning" x:Class="CertificatePinning.MainPage">
+    <StackLayout>
+        <Button Text="Load Xamarin.com from HttpClient" Clicked="Handle_HttpClient" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Button Text="Load Xamarin.com in WebView" Clicked="Handle_WebView" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Button Text="Load Image from CloudFront" Clicked="Handle_ImageView" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+    </StackLayout>
+</ContentPage>
