@@ -14,9 +14,13 @@ namespace CertificatePinning
     {
         public WebPage()
         {
-            var browser = new CustomCrossWebView();
+            /* easy approach
+             * var browser = new CustomCrossWebView();
             browser.Open("https://xamarin.com");
-            Content = browser;
+            */
+
+            // With custom renderer
+            Content = new CustomWebView() { Source= "https://xamarin.com"};
         }
     }
 

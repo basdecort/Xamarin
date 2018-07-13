@@ -1,5 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using CertificatePinning.Services;
 using System.Threading.Tasks;
 
@@ -20,3 +19,5 @@ namespace CertificatePinning.Views
         }
     }
 }
+
+

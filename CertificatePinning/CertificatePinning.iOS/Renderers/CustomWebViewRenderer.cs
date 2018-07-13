@@ -4,10 +4,8 @@ using Foundation;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
-using WebKit;
 using CertificatePinning.Services;
 using System;
-using Security;
 
 [assembly: ExportRenderer(typeof(CustomWebView), typeof(CustomWebViewRenderer))]
 namespace CertificatePinning.iOS.Renderers
@@ -31,6 +29,13 @@ namespace CertificatePinning.iOS.Renderers
             _renderer = customWebViewRenderer;
         }
 
+        /// <summary>
+        /// This will for all loaded URLs
+        /// </summary>
+        /// <returns><c>true</c>, if start load was shoulded, <c>false</c> otherwise.</returns>
+        /// <param name="webView">Web view.</param>
+        /// <param name="request">Request.</param>
+        /// <param name="navigationType">Navigation type.</param>
         [Export("webView:shouldStartLoadWithRequest:navigationType:")]
         public bool ShouldStartLoad(UIWebView webView, NSUrlRequest request, UIWebViewNavigationType navigationType)
         {
@@ -52,7 +57,12 @@ namespace CertificatePinning.iOS.Renderers
             return false;
         }
  
-        [Export("connection:willSendRequestForAuthenticationChallenge:")]
+        /// <summary>
+        /// This will be triggered for all links inside WebView
+        /// </summary>
+        /// <param name="connection">Connection.</param>
+        /// <param name="challenge">Challenge.</param>
+      /*  [Export("connection:willSendRequestForAuthenticationChallenge:")]
         public void WillSendRequestForAuthenticationChallenge(NSUrlConnection connection, NSUrlAuthenticationChallenge challenge)
         {
 
@@ -61,19 +71,7 @@ namespace CertificatePinning.iOS.Renderers
                 var trust = challenge.ProtectionSpace.ServerSecTrust;
                 var result = trust.Evaluate();
                 bool trustedCertificate = result == SecTrustResult.Proceed || result == SecTrustResult.Unspecified;
-                Console.WriteLine(trustedCertificate);
-
-                if (trustedCertificate)
-                {
-                    challenge.Sender.PerformDefaultHandling(challenge);
-                }
-               /* if (!trustedCertificate && trust.Count != 0)
-                {
-                    var originalCertificate = trust[0].ToX509Certificate2();
-                    var x509Certificate = new Certificate(challenge.ProtectionSpace.Host, originalCertificate);
-                    trustedCertificate = _renderer.Element.ShouldTrustUnknownCertificate(x509Certificate);
-                }
-
+               
                 if (trustedCertificate)
                 {
                     challenge.Sender.UseCredential(new NSUrlCredential(trust), challenge);
@@ -85,8 +83,8 @@ namespace CertificatePinning.iOS.Renderers
 
 
                     return;
-                }*/
-            }
+                }
+            }*/
         }
     }
 }

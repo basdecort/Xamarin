@@ -385,6 +385,29 @@ namespace Xamarin.SSLPinning.iOS
             }
         }
 
+        private static bool ValidateLeafCert(NSUrlAuthenticationChallenge challenge)
+        {
+            var serverCertChain = challenge.ProtectionSpace.ServerSecTrust;
+             
+            var first = serverCertChain[0].DerData;
+            var cert = NSData.FromFile("xamarin.cer");
+
+            return first.IsEqual(cert);
+        }
+
+        private static bool IsValid(NSUrlAuthenticationChallenge challenge)
+        {
+            var serverCertChain = challenge.ProtectionSpace.ServerSecTrust;
+      
+            var first = serverCertChain[0].DerData;
+            var firstString = first.GetBase64EncodedString(NSDataBase64EncodingOptions.None);
+
+            var cert = NSData.FromFile("xamarin.cer");
+            var certString = cert.GetBase64EncodedString(NSDataBase64EncodingOptions.None);
+
+            return firstString == certString;
+        }
+
         private static bool ValidateLeafCert(SecTrust securitySecTrust)
         {
             var first = securitySecTrust[0].DerData;

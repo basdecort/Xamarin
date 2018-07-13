@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using CertificatePinning.Services;
 using CertificatePinning.Droid.Handlers;
+using Square.OkHttp3;
 
 namespace CertificatePinning.Droid
 {
@@ -19,10 +20,10 @@ namespace CertificatePinning.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
-            // Native verification using TrustManager, Change project properties to use correct implementation!
-            SafeService.HttpClient = SafeService.CreateClient(new PublicKeyHandler());
+            // Native verification using TrustManager, works with AndroidClientHandler!
+            //SafeService.HttpClient = SafeService.CreateClient(new PublicKeyHandler());
 
-            // Managed verification, Change project properties to use correct implementation!
+            // Managed verification, works with Managed client handler!
             //SafeService.HttpClient = SafeService.CreateClient();
 
             base.OnCreate(bundle);
