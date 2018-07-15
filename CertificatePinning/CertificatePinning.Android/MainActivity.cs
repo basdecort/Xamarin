@@ -1,14 +1,9 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
-using CertificatePinning.Services;
 using CertificatePinning.Droid.Handlers;
-using Square.OkHttp3;
+using CertificatePinning.Services;
 
 namespace CertificatePinning.Droid
 {
@@ -21,7 +16,7 @@ namespace CertificatePinning.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             // Native verification using TrustManager, works with AndroidClientHandler!
-            //SafeService.HttpClient = SafeService.CreateClient(new PublicKeyHandler());
+            SafeService.HttpClient = SafeService.CreateClient(new PublicKeyHandler());
 
             // Managed verification, works with Managed client handler!
             //SafeService.HttpClient = SafeService.CreateClient();

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Square.OkHttp3;
 using System.Linq;
 namespace CertificatePinning.Droid.OkHttp
 {
-    public class OkHttpClientHandler
+  /*  public class OkHttpClientHandler
     {
         public static Dictionary<string, string> _allowedPubKeys = new Dictionary<string, string>
         {
@@ -54,5 +53,5 @@ namespace CertificatePinning.Droid.OkHttp
         public OkHttpClientHandler()
         {
         }
-    }
+    }*/
 }

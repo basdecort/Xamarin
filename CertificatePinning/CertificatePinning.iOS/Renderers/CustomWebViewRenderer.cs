@@ -85,6 +85,6 @@ namespace CertificatePinning.iOS.Renderers
                     return;
                 }
             }*/
-        }
     }
 }
+
