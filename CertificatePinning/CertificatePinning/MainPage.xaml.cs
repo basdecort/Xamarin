@@ -16,11 +16,11 @@ namespace CertificatePinning
         {
             /* easy approach
              * var browser = new CustomCrossWebView();
-            browser.Open("https://xamarin.com");
+            browser.Open("https://microsoft.com");
             */
 
             // With custom renderer
-            Content = new CustomWebView() { Source= "https://xamarin.com"};
+            Content = new CustomWebView() { Source= "https://microsoft.com"};
         }
     }
 
@@ -58,7 +58,7 @@ namespace CertificatePinning
             base.OnAppearing();
             try
             {
-                var result = await _service.GetContents("https://www.xamarin.com/");
+                var result = await _service.GetContents("https://www.microsoft.com/");
                 await DisplayAlert("Success", result, "OK");
             }
             catch (Exception ex)

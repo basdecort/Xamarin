@@ -16,10 +16,10 @@ namespace CertificatePinning.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             // Native verification using TrustManager, works with AndroidClientHandler!
-            SafeService.HttpClient = SafeService.CreateClient(new PublicKeyHandler());
+            //SafeService.HttpClient = SafeService.CreateClient(new PublicKeyHandler());
 
             // Managed verification, works with Managed client handler!
-            //SafeService.HttpClient = SafeService.CreateClient();
+            SafeService.HttpClient = SafeService.CreateClient();
 
             base.OnCreate(bundle);
 

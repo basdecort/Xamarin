@@ -1,4 +1,5 @@
 using System;
+using CertificatePinning.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,6 +11,8 @@ namespace CertificatePinning
         public App()
         {
             InitializeComponent();
+
+          //  var pubkey = CertficateValidation.GetPubKey("www.microsoft.com.cer");
 
             MainPage = new NavigationPage(new MainPage());
         }

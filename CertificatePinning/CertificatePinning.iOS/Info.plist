@@ -33,6 +33,6 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.basdecort</string>
+	<string>nl.mobilock.csa-dev</string>
 </dict>
 </plist>

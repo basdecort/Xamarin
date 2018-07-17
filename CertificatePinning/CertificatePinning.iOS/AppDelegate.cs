@@ -26,10 +26,10 @@ namespace CertificatePinning.iOS
             global::Xamarin.Forms.Forms.Init();
 
             // Native verification, Change project properties to use correct implementation!
-            SafeService.HttpClient = new HttpClient(new Xamarin.SSLPinning.iOS.NSUrlSessionHandler());
+            //SafeService.HttpClient = new HttpClient(new Xamarin.SSLPinning.iOS.NSUrlSessionHandler());
 
             // Managed verification, Change project properties to use correct implementation!
-            //SafeService.HttpClient = SafeService.CreateClient();
+            SafeService.HttpClient = SafeService.CreateClient();
 
             LoadApplication(new App());
 
