@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using ModernHttpClient;
+using System.IO;
 
 namespace CertificatePinning.Services
 {
@@ -38,6 +39,17 @@ namespace CertificatePinning.Services
             }catch (Exception ex)
             {
                 var aa = ex;
+                return null;
+            }
+        }
+
+        public Task<Stream> GetStream(string uri)
+        {
+            try
+            {
+                return HttpClient.GetStreamAsync(uri);
+            }catch(Exception ex)
+            {
                 return null;
             }
         }

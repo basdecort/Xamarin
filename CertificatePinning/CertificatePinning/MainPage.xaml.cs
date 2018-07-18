@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using CertificatePinning.Services;
 using CertificatePinning.Views;
+using System.Threading.Tasks;
 
 namespace CertificatePinning
 {
@@ -24,14 +25,41 @@ namespace CertificatePinning
         }
     }
 
+    public class SafeImage : Image
+    {
+        private readonly SafeService _safeService;
+        public SafeImage(SafeService safeService)
+        {
+            _safeService = safeService;
+        }
+
+        public async Task Load(string url)
+        {
+            var stream = await _safeService.GetStream(url);
+            Source = ImageSource.FromStream(() => stream);
+        }
+    }
+
+
     public class ImagePage : ContentPage
     {
-        public ImagePage()
+        private SafeImage _image;
+
+        public ImagePage(SafeService safeService)
         {
-            var image = new Image();
-            image.Source = "https://d6rp199oz9kcs.cloudfront.net/dist/images/pages/index/platform-screenshot@2x-mmjfsTTi.png";
-            Content = image;
+            _image = new SafeImage(safeService) { IsVisible = false };
+
+            Content = _image;
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await _image.Load("https://d6rp199oz9kcs.cloudfront.net/dist/images/pages/index/platform-screenshot@2x-mmjfsTTi.png");
+            _image.IsVisible = true;
+        }
+
+
     }
 
     public partial class MainPage : ContentPage
@@ -50,7 +78,7 @@ namespace CertificatePinning
 
         async void Handle_ImageView(object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new ImagePage());
+            await Navigation.PushAsync(new ImagePage(_service));
         }
 
         async void Handle_HttpClient(object sender, System.EventArgs e)
