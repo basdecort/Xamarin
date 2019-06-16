@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Visual="AwesomeVisual" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="FormsVisual.Views.CustomControlsPage">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" Margin="20">
+            <ActivityIndicator IsRunning="true" />
+            <Button Text="I'm a button" />
+            <DatePicker />
+            <Editor Text="Editor" />
+            <Entry Placeholder="Placeholder" Text="Entry" />
+            <Frame>
+                <Label Text="This is a frame" />
+            </Frame>
+            <Picker />
+            <ProgressBar Progress="20" />
+            <Slider Minimum="0" Maximum="100" Value="40" />
+            <Stepper Minimum="0" Maximum="100" Value="50" />
+            <TimePicker />
+         </StackLayout>  
+    </ContentPage.Content>
+</ContentPage>
