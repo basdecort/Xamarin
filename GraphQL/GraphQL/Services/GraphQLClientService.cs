@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using GraphQL.Client;
 using GraphQL.Common.Request;
+using GraphQL.Common.Response;
 using GraphQL.Models;
 using GraphQL.Responses;
 
@@ -22,7 +23,7 @@ namespace GraphQL.Services
             {
                 _graphQLClient = new GraphQLClient(endpointUrl);
                 _graphQLClient.DefaultRequestHeaders.Add("User-Agent", "GraphQL");
-                _graphQLClient.DefaultRequestHeaders.Add("Authorization", "bearer ");
+                _graphQLClient.DefaultRequestHeaders.Add("Authorization", "bearer 6e12ba408462d0e362cfab249e1cfd7603973dc0");
             }
 
             var response = await _graphQLClient.PostQueryAsync(q);

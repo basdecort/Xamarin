@@ -22,7 +22,7 @@ namespace GraphQL
         public MainPage()
         {
             InitializeComponent();
-            _graphQLService = new GraphQLHttpService();
+            _graphQLService = new GraphQLClientService();
         }
 
         protected override async void OnAppearing()
@@ -30,7 +30,6 @@ namespace GraphQL
             base.OnAppearing();
 
             var graphQuery = "query{ user(login: marcofolio){    name    bio    company    location    followers(first: 10)    {      nodes      {        id        name      }    }  } }";
-
             var user = await _graphQLService.Query<User>("https://api.github.com/graphql", graphQuery);
 
             Name.Text = user.name;

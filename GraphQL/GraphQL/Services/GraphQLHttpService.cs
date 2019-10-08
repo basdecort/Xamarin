@@ -15,7 +15,7 @@ namespace GraphQL
         {
             _httpClient = new HttpClient();
             _httpClient.DefaultRequestHeaders.Add("User-Agent", "GraphQL");
-            _httpClient.DefaultRequestHeaders.Add("Authorization", "bearer ");
+            _httpClient.DefaultRequestHeaders.Add("Authorization", "bearer 6e12ba408462d0e362cfab249e1cfd7603973dc0");
         }
 
         public async Task<T> Query<T>(string endpointUrl, string q)
@@ -38,6 +38,11 @@ namespace GraphQL
             {
                 return default(T);
             }
+        }
+
+        public Task Subscribe()
+        {
+            return Task.CompletedTask;
         }
     }
 }
