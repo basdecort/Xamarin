@@ -1,32 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using GraphOfThrones.Core.Models;
+using Newtonsoft.Json;
 
 namespace GraphOfThrones.Core.Services
 {
-    public interface ICharacterService
+    public class CharacterResult
     {
-        Task<List<Models.Character>> GetAll();
+        public List<Character> characters { get; set; }
     }
 
-    public class CharacterService : ICharacterService
+    public interface ICharacterService
     {
-        public CharacterService()
-        {
-        }
+       Task<List<Character>> GetAll();
+    }
 
-        public Task<List<Character>> GetAll()
+    public class CharacterService : ServiceBase<CharacterResult>, ICharacterService
+    {
+        public CharacterService() : base("https://raw.githubusercontent.com/jeffreylancaster/game-of-thrones/master/data/characters.json")
+        {}
+
+        public async Task<List<Character>> GetAll()
         {
-            var characters = new List<Character>
-            {
-                new Character()
-                {
-                    name = "Name",
-                    gender = "Male"
-                }
-            };
-            return Task.FromResult(characters);
+            var result = await Get();
+
+            return result.characters;
         }
     }
 }

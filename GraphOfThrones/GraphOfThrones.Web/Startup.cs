@@ -34,9 +34,9 @@ namespace GraphOfThrones
             serviceCollection.AddSingleton<CharactersQuery>();
   
             // Types
-            serviceCollection.AddSingleton<BookType>();
+           // serviceCollection.AddSingleton<BookType>();
             serviceCollection.AddSingleton<CharacterType>();
-            serviceCollection.AddSingleton<HouseType>();
+           // serviceCollection.AddSingleton<HouseType>();
 
             // Schema
             serviceCollection.AddSingleton<GOTSchema>();
