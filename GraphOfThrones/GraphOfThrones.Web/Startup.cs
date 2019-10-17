@@ -1,3 +1,4 @@
+using GraphOfThrones.Core.Models;
 using GraphOfThrones.Core.Schema;
 using GraphOfThrones.Core.Schema.Queries;
 using GraphOfThrones.Core.Schema.Types;
@@ -31,18 +32,19 @@ namespace GraphOfThrones
             serviceCollection.AddSingleton<IDependencyResolver>(c => new FuncDependencyResolver(type => c.GetRequiredService(type)));
 
             // Queries
-            serviceCollection.AddSingleton<CharactersQuery>();
+            serviceCollection.AddSingleton<Query>();
   
             // Types
            // serviceCollection.AddSingleton<BookType>();
             serviceCollection.AddSingleton<CharacterType>();
-           // serviceCollection.AddSingleton<HouseType>();
+            serviceCollection.AddSingleton<EpisodeType>();
 
             // Schema
             serviceCollection.AddSingleton<GOTSchema>();
 
             // Services
-            serviceCollection.AddSingleton<ICharacterService, CharacterService>();
+            serviceCollection.AddSingleton<IService<Character>, CharacterService>();
+            serviceCollection.AddSingleton<IService<Episode>, EpisodeService>();
 
             // Register GraphQL services
             serviceCollection.AddGraphQL(options =>

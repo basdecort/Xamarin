@@ -11,13 +11,8 @@ namespace GraphOfThrones.Core.Services
     {
         public List<Character> characters { get; set; }
     }
-    
-    public interface ICharacterService
-    {
-        Task<IEnumerable<Character>> GetAll();
-    }
 
-    public class CharacterService : ServiceBase<CharacterResult>, ICharacterService
+    public class CharacterService : ServiceBase<CharacterResult>, IService<Character>
     {
         public CharacterService() : base("https://raw.githubusercontent.com/jeffreylancaster/game-of-thrones/master/data/characters.json")
         {}

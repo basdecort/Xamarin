@@ -10,12 +10,7 @@ namespace GraphOfThrones.Core.Services
         public List<Episode> episodes { get; set; }
     }
 
-    public interface IEpisodeService
-    {
-        Task<IEnumerable<Episode>> GetAll();
-    }
-
-    public class EpisodeService : ServiceBase<EpisodeResult>, IEpisodeService
+    public class EpisodeService : ServiceBase<EpisodeResult>, IService<Episode>
     {
             public EpisodeService() : base("https://raw.githubusercontent.com/jeffreylancaster/game-of-thrones/master/data/episodes.json")
             { }

@@ -8,7 +8,7 @@ namespace GraphOfThrones.Core.Schema
     {
         public GOTSchema(IDependencyResolver resolver) : base(resolver)
         {
-            Query = resolver.Resolve<CharactersQuery>();
+            Query = resolver.Resolve<Query>();
         }
     }
 }

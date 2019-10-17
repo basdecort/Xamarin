@@ -14,7 +14,7 @@ namespace GraphOfThrones.Core.Schema.Queries
             // Expose characters Query
             Field<ListGraphType<CharacterType>>("characters", resolve: (context) => characterService.GetAll());
             // Expose episodes Query
-          //  Field<ListGraphType<EpisodeType>>("episodes", resolve: (context) => episodeService.GetAll());
+            Field<ListGraphType<EpisodeType>>("episodes", resolve: (context) => episodeService.GetAll());
         }
     }
 }
