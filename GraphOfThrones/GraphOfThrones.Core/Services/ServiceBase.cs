@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace GraphOfThrones.Core.Services
 {
+    public interface IService<T>
+    {
+        Task<IEnumerable<T>> GetAll();
+    }
+
     public class ServiceBase<T>
     {
         private T _cachedResult;
@@ -31,7 +37,6 @@ namespace GraphOfThrones.Core.Services
             }
             catch(Exception ex)
             {
-                var a = ex;
                 return default(T);
             }
         }

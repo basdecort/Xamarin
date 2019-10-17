@@ -11,10 +11,10 @@ namespace GraphOfThrones.Core.Services
     {
         public List<Character> characters { get; set; }
     }
-
+    
     public interface ICharacterService
     {
-       Task<List<Character>> GetAll();
+        Task<IEnumerable<Character>> GetAll();
     }
 
     public class CharacterService : ServiceBase<CharacterResult>, ICharacterService
@@ -22,7 +22,7 @@ namespace GraphOfThrones.Core.Services
         public CharacterService() : base("https://raw.githubusercontent.com/jeffreylancaster/game-of-thrones/master/data/characters.json")
         {}
 
-        public async Task<List<Character>> GetAll()
+        public async Task<IEnumerable<Character>> GetAll()
         {
             var result = await Get();
 
