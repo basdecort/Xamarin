@@ -1,6 +1,7 @@
 using GraphOfThrones.Core.Schema;
 using GraphOfThrones.Core.Schema.Queries;
 using GraphOfThrones.Core.Schema.Types;
+using GraphOfThrones.Core.Services;
 using GraphQL;
 using GraphQL.Server;
 using Microsoft.AspNetCore.Builder;
@@ -40,6 +41,8 @@ namespace GraphOfThrones
             // Schema
             serviceCollection.AddSingleton<GOTSchema>();
 
+            // Services
+            serviceCollection.AddSingleton<ICharacterService, CharacterService>();
 
             // Register GraphQL services
             serviceCollection.AddGraphQL(options =>
