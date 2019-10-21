@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace GraphOfThrones.Core.Models
 {
     public class Character
     {
+        public string name { get; set; }
         public string characterName { get; set; }
         public string characterLink { get; set; }
         public string actorName { get; set; }

@@ -2,10 +2,21 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using GraphOfThrones.Core.Models;
 using Newtonsoft.Json;
 
 namespace GraphOfThrones.Core.Services
 {
+    public interface ICharacterService : IService<Character>
+    {
+
+    }
+
+    public interface IEpisodeService : IService<Episode>
+    {
+        Episode Create(Episode episode);
+    }
+
     public interface IService<T>
     {
         Task<IEnumerable<T>> GetAll();
@@ -13,7 +24,7 @@ namespace GraphOfThrones.Core.Services
 
     public class ServiceBase<T>
     {
-        private T _cachedResult;
+        internal T CachedResult;
         private readonly string _jsonUrl;
         private HttpClient _httpClient;
 
@@ -27,13 +38,13 @@ namespace GraphOfThrones.Core.Services
         {
             try
             {
-                if (_cachedResult == null)
+                if (CachedResult == null)
                 {
                     var json = await _httpClient.GetStringAsync(_jsonUrl);
 
-                    _cachedResult = JsonConvert.DeserializeObject<T>(json);
+                    CachedResult = JsonConvert.DeserializeObject<T>(json);
                 }
-                return _cachedResult;
+                return CachedResult;
             }
             catch(Exception ex)
             {

@@ -1,5 +1,6 @@
 using GraphOfThrones.Core.Models;
 using GraphOfThrones.Core.Schema;
+using GraphOfThrones.Core.Schema.Mutations;
 using GraphOfThrones.Core.Schema.Queries;
 using GraphOfThrones.Core.Schema.Types;
 using GraphOfThrones.Core.Services;
@@ -31,20 +32,21 @@ namespace GraphOfThrones
             // Register DepedencyResolver; this will be used when a GraphQL type needs to resolve a dependency
             serviceCollection.AddSingleton<IDependencyResolver>(c => new FuncDependencyResolver(type => c.GetRequiredService(type)));
 
-            // Queries
+            // Query, Mutation and Subscription
             serviceCollection.AddSingleton<Query>();
-  
+            serviceCollection.AddSingleton<Mutation>();
+
             // Types
-           // serviceCollection.AddSingleton<BookType>();
             serviceCollection.AddSingleton<CharacterType>();
             serviceCollection.AddSingleton<EpisodeType>();
+            serviceCollection.AddSingleton<AddEpisodeRequest>();
 
             // Schema
             serviceCollection.AddSingleton<GOTSchema>();
 
             // Services
-            serviceCollection.AddSingleton<IService<Character>, CharacterService>();
-            serviceCollection.AddSingleton<IService<Episode>, EpisodeService>();
+            serviceCollection.AddSingleton<ICharacterService, CharacterService>();
+            serviceCollection.AddSingleton<IEpisodeService, EpisodeService>();
 
             // Register GraphQL services
             serviceCollection.AddGraphQL(options =>

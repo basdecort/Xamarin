@@ -16,5 +16,6 @@
     <Folder Include="Schema\Types\" />
     <Folder Include="Schema\Queries\" />
     <Folder Include="Services\" />
+    <Folder Include="Schema\Mutations\" />
   </ItemGroup>
 </Project>

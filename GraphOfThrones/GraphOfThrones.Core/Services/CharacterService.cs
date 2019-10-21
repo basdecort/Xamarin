@@ -12,7 +12,7 @@ namespace GraphOfThrones.Core.Services
         public List<Character> characters { get; set; }
     }
 
-    public class CharacterService : ServiceBase<CharacterResult>, IService<Character>
+    public class CharacterService : ServiceBase<CharacterResult>, ICharacterService
     {
         public CharacterService() : base("https://raw.githubusercontent.com/jeffreylancaster/game-of-thrones/master/data/characters.json")
         {}
