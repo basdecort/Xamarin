@@ -40,6 +40,7 @@ namespace GraphOfThrones
             serviceCollection.AddSingleton<CharacterType>();
             serviceCollection.AddSingleton<EpisodeType>();
             serviceCollection.AddSingleton<AddEpisodeRequest>();
+            serviceCollection.AddSingleton<KillCharacterRequest>();
 
             // Schema
             serviceCollection.AddSingleton<GOTSchema>();

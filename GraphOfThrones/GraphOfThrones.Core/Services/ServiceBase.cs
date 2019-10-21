@@ -7,16 +7,6 @@ using Newtonsoft.Json;
 
 namespace GraphOfThrones.Core.Services
 {
-    public interface ICharacterService : IService<Character>
-    {
-
-    }
-
-    public interface IEpisodeService : IService<Episode>
-    {
-        Episode Create(Episode episode);
-    }
-
     public interface IService<T>
     {
         Task<IEnumerable<T>> GetAll();
