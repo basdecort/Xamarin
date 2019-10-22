@@ -1,6 +1,7 @@
 using GraphOfThrones.Core.Models;
 using GraphOfThrones.Core.Schema;
 using GraphOfThrones.Core.Schema.Mutations;
+using GraphOfThrones.Core.Schema.Subscriptions;
 using GraphOfThrones.Core.Schema.Queries;
 using GraphOfThrones.Core.Schema.Types;
 using GraphOfThrones.Core.Services;
@@ -35,12 +36,14 @@ namespace GraphOfThrones
             // Query, Mutation and Subscription
             serviceCollection.AddSingleton<Query>();
             serviceCollection.AddSingleton<Mutation>();
+            serviceCollection.AddSingleton<Subscription>();
 
             // Types
             serviceCollection.AddSingleton<CharacterType>();
             serviceCollection.AddSingleton<EpisodeType>();
             serviceCollection.AddSingleton<AddEpisodeRequest>();
             serviceCollection.AddSingleton<KillCharacterRequest>();
+            serviceCollection.AddSingleton<EpisodeAddedType>();
 
             // Schema
             serviceCollection.AddSingleton<GOTSchema>();

@@ -1,6 +1,7 @@
 ﻿using System;
 using GraphOfThrones.Core.Schema.Mutations;
 using GraphOfThrones.Core.Schema.Queries;
+using GraphOfThrones.Core.Schema.Subscriptions;
 using GraphQL;
 
 namespace GraphOfThrones.Core.Schema
@@ -11,6 +12,7 @@ namespace GraphOfThrones.Core.Schema
         {
             Query = resolver.Resolve<Query>();
             Mutation = resolver.Resolve<Mutation>();
+            Subscription = resolver.Resolve<Subscription>();
         }
     }
 }
