@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Reactive.Subjects;
 using System.Threading.Tasks;
 using GraphOfThrones.Core.Models;
 using Newtonsoft.Json;
@@ -16,12 +17,21 @@ namespace GraphOfThrones.Core.Services
     public interface ICharacterService : IService<Character>
     {
         Task<Character> Kill(string characterName, string killedBy);
+
+        IObservable<Character> CharacterKilled();
     }
 
     public class CharacterService : ServiceBase<CharacterResult>, ICharacterService
     {
+        private ReplaySubject<Character> _subject = new ReplaySubject<Character>(1);
+
         public CharacterService() : base("https://raw.githubusercontent.com/jeffreylancaster/game-of-thrones/master/data/characters.json")
         {}
+
+        public IObservable<Character> CharacterKilled()
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task<IEnumerable<Character>> GetAll()
         {
@@ -52,6 +62,8 @@ namespace GraphOfThrones.Core.Services
             {
                 killedBy
             };
+
+            _subject.OnNext(character);
 
             return character;
         }
