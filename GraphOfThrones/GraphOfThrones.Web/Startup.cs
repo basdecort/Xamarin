@@ -57,8 +57,7 @@ namespace GraphOfThrones
             {
                 options.EnableMetrics = true;
                 options.ExposeExceptions = true;
-            })
-              .AddWebSockets();
+            }).AddWebSockets();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
