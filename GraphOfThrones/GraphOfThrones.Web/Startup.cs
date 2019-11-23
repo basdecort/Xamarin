@@ -25,10 +25,19 @@ namespace GraphOfThrones
         public void ConfigureServices(IServiceCollection serviceCollection)
         {
             // If using Kestrel:
+#if NETCOREAPP3_0
+            // Workaround until GraphQL can swap off Newtonsoft.Json and onto the new MS one.
+            // Depending on whether you're using IIS or Kestrel, the code required is different
+            // See: https://github.com/graphql-dotnet/graphql-dotnet/issues/1116
             serviceCollection.Configure<KestrelServerOptions>(options =>
             {
                 options.AllowSynchronousIO = true;
             });
+            serviceCollection.Configure<IISServerOptions>(options =>
+            {
+                options.AllowSynchronousIO = true;
+            });
+#endif
 
             // Register DepedencyResolver; this will be used when a GraphQL type needs to resolve a dependency
             serviceCollection.AddSingleton<IDependencyResolver>(c => new FuncDependencyResolver(type => c.GetRequiredService(type)));
