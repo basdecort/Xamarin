@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 
 namespace GraphOfThrones.Core.Models
 {
@@ -32,4 +31,5 @@ namespace GraphOfThrones.Core.Models
         public List<string> abducted { get; set; }
         public List<string> sibling { get; set; }
     }
+
 }

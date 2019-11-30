@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GOTKilled.iOS", "GOTKilled.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GOTKilled", "GOTKilled\GOTKilled.csproj", "{6015DBEB-A253-4673-8425-1D52BED95F88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Core", "Shared.Core\Shared.Core.csproj", "{705A3C73-310E-466E-8665-25290205D2CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,18 @@ Global
 		{6015DBEB-A253-4673-8425-1D52BED95F88}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{6015DBEB-A253-4673-8425-1D52BED95F88}.Release|iPhone.ActiveCfg = Release|Any CPU
 		{6015DBEB-A253-4673-8425-1D52BED95F88}.Release|iPhone.Build.0 = Release|Any CPU
+		{705A3C73-310E-466E-8665-25290205D2CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{705A3C73-310E-466E-8665-25290205D2CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{705A3C73-310E-466E-8665-25290205D2CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{705A3C73-310E-466E-8665-25290205D2CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{705A3C73-310E-466E-8665-25290205D2CE}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{705A3C73-310E-466E-8665-25290205D2CE}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{705A3C73-310E-466E-8665-25290205D2CE}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{705A3C73-310E-466E-8665-25290205D2CE}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{705A3C73-310E-466E-8665-25290205D2CE}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{705A3C73-310E-466E-8665-25290205D2CE}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{705A3C73-310E-466E-8665-25290205D2CE}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{705A3C73-310E-466E-8665-25290205D2CE}.Release|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BEBA0191-1D7A-43C4-85FA-08154FC4CB7B} = {D914FE1E-40A3-4998-ACC4-2BF2A7DF68D1}
