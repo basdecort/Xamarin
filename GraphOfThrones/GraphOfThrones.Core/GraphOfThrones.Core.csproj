@@ -19,4 +19,7 @@
     <Folder Include="Schema\Mutations\" />
     <Folder Include="Schema\Subscriptions\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared.Core\Shared.Core.csproj" />
+  </ItemGroup>
 </Project>

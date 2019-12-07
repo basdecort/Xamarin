@@ -5,6 +5,7 @@ using Xamarin.Forms.Xaml;
 
 using GOTKilled.Models;
 using GOTKilled.ViewModels;
+using Shared.Core.Models;
 
 namespace GOTKilled.Views
 {
@@ -26,10 +27,9 @@ namespace GOTKilled.Views
         {
             InitializeComponent();
 
-            var item = new Item
+            var item = new Character
             {
-                Text = "Item 1",
-                Description = "This is an item description."
+                
             };
 
             viewModel = new ItemDetailViewModel(item);

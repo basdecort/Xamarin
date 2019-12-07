@@ -7,26 +7,24 @@ using Xamarin.Forms;
 
 using GOTKilled.Models;
 using GOTKilled.Views;
+using GOTKilled.Services;
+using Shared.Core.Models;
 
 namespace GOTKilled.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Character> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
+
+        private ICharacterService characterService;
 
         public ItemsViewModel()
         {
-            Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            characterService = new CharacterService();
+            Title = "Who GOT killed?";
+            Items = new ObservableCollection<Character>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
-            {
-                var newItem = item as Item;
-                Items.Add(newItem);
-                await DataStore.AddItemAsync(newItem);
-            });
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -39,7 +37,7 @@ namespace GOTKilled.ViewModels
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
+                var items = await characterService.GetAll();
                 foreach (var item in items)
                 {
                     Items.Add(item);

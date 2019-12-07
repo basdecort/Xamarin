@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using GraphOfThrones.Core.Models;
-using GraphQL.Types;
+﻿using GraphQL.Types;
+using Shared.Core.Models;
 
 namespace GraphOfThrones.Core.Schema.Types
 {

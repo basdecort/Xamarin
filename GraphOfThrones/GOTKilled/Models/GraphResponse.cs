@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using GraphOfThrones.Core.Models;
+using Shared.Core.Models;
 
 namespace GOTKilled.Models
 {

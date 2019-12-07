@@ -1,4 +1,4 @@
-using GraphOfThrones.Core.Models;
+using Shared.Core.Models;
 using GraphOfThrones.Core.Schema;
 using GraphOfThrones.Core.Schema.Mutations;
 using GraphOfThrones.Core.Schema.Subscriptions;

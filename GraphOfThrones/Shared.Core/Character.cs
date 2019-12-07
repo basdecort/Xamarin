@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GraphOfThrones.Core.Models
+namespace Shared.Core.Models
 {
     public class Character
     {

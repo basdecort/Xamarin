@@ -1,6 +1,6 @@
 ﻿using System;
-using GraphOfThrones.Core.Models;
 using GraphQL.Types;
+using Shared.Core.Models;
 
 namespace GraphOfThrones.Core.Schema.Subscriptions
 {

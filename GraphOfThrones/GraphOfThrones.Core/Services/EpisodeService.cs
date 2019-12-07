@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Threading.Tasks;
-using GraphOfThrones.Core.Models;
+using Shared.Core.Models;
 
 namespace GraphOfThrones.Core.Services
 {

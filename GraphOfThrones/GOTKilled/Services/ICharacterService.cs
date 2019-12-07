@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using GraphOfThrones.Core.Models;
+using Shared.Core.Models;
 
 namespace GOTKilled.Services
 {

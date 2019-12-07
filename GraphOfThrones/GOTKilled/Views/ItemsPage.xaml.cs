@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using GOTKilled.Models;
 using GOTKilled.Views;
 using GOTKilled.ViewModels;
+using Shared.Core.Models;
 
 namespace GOTKilled.Views
 {
@@ -29,19 +30,14 @@ namespace GOTKilled.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Item;
+            var item = args.SelectedItem as Character;
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
-
             // Manually deselect item.
             ItemsListView.SelectedItem = null;
-        }
 
-        async void AddItem_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+           await  Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
         }
 
         protected override void OnAppearing()

@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Reactive.Subjects;
 using System.Threading.Tasks;
-using GraphOfThrones.Core.Models;
-using Newtonsoft.Json;
+using Shared.Core.Models;
 
 namespace GraphOfThrones.Core.Services
 {

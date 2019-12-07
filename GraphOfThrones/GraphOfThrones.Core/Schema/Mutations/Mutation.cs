@@ -1,8 +1,8 @@
 ﻿using System;
-using GraphOfThrones.Core.Models;
 using GraphOfThrones.Core.Schema.Types;
 using GraphOfThrones.Core.Services;
 using GraphQL.Types;
+using Shared.Core.Models;
 
 namespace GraphOfThrones.Core.Schema.Mutations
 {

@@ -1,15 +1,16 @@
 ﻿using System;
 
 using GOTKilled.Models;
+using Shared.Core.Models;
 
 namespace GOTKilled.ViewModels
 {
     public class ItemDetailViewModel : BaseViewModel
     {
-        public Item Item { get; set; }
-        public ItemDetailViewModel(Item item = null)
+        public Character Item { get; set; }
+        public ItemDetailViewModel(Character item = null)
         {
-            Title = item?.Text;
+            Title = item?.characterName;
             Item = item;
         }
     }

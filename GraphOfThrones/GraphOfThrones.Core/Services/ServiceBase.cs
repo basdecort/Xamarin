@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using GraphOfThrones.Core.Models;
 using Newtonsoft.Json;
 
 namespace GraphOfThrones.Core.Services
