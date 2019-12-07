@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using GraphQL.Client;
+using GraphQL.Common.Request;
 using Shared.Core.Models;
 
 namespace GOTKilled.Services
 {
     public class CharacterService : ICharacterService
     {
+        private readonly GraphQLClient graphQLClient;
         public CharacterService()
         {
             //http://graphofthrones.azurewebsites.net/
+            graphQLClient = new GraphQLClient("http://graphofthrones.azurewebsites.net/graphql");
         }
 
         /// <summary>
@@ -18,24 +23,46 @@ namespace GOTKilled.Services
         /// <returns></returns>
         public async Task<List<Character>> GetAll()
         {
-            return new List<Character>
+            var request = new GraphQLRequest
             {
-                new Character
-                {
-                    characterName = "hi",
-                    characterImageThumb = "https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/listview/customizing-cell-appearance-images/text-cell-default.png",
-                    nickname = "holo",
-                }
+               Query = @"{
+                          characters
+                          {
+                            characterName,
+                            characterImageThumb,
+                            nickname
+                          }
+                        }"
             };
+
+            var response = await graphQLClient.PostAsync(request);
+            return response.GetDataFieldAs<List<Character>>("characters");
         }
 
         /// <summary>
         /// This will fetch the details that are shown on the detail page.
         /// </summary>
         /// <returns></returns>
-        public async Task<List<Character>> GetDetails()
+        public async Task<Character> GetDetails(string characterName)
         {
-            return null;
+            var request = new GraphQLRequest
+            {
+                Query = @"{
+                          characters
+                          {
+                            characterName,
+                            characterImageThumb,
+                            characterImageFull,
+                            nickname,
+                            killed,
+                            killedBy
+                          }
+                        }"
+            };
+
+            var response = await graphQLClient.PostAsync(request);
+            // TODO: we should enable the API to allow filtering 
+            return response.GetDataFieldAs<List<Character>>("characters").FirstOrDefault(c => c.characterName == characterName);
         }
     }
 }

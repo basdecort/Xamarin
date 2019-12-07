@@ -7,6 +7,7 @@ namespace GOTKilled.Services
 {
     public interface ICharacterService
     {
-        Task<List<Character>> GetAll();   
+        Task<List<Character>> GetAll();
+        Task<Character> GetDetails(string characterName);
     }
 }

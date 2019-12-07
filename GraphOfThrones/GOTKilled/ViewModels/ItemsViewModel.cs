@@ -9,6 +9,7 @@ using GOTKilled.Models;
 using GOTKilled.Views;
 using GOTKilled.Services;
 using Shared.Core.Models;
+using System.Linq;
 
 namespace GOTKilled.ViewModels
 {

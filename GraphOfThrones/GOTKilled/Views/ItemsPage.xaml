@@ -19,8 +19,8 @@
                             <Image Source="{Binding characterImageThumb}" HeightRequest="100" WidthRequest="100" Aspect="AspectFill" />
 
                             <StackLayout>
-                                <Label Text="{Binding characterName}" d:Text="{Binding .}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                                <Label Text="{Binding nickname}" d:Text="Item descripton" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                <Label Text="{Binding characterName}" d:Text="{Binding .}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" TextColor="Brown" FontSize="Title" />
+                                <Label Text="{Binding nickname}" d:Text="Item descripton" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Subtitle" />
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>

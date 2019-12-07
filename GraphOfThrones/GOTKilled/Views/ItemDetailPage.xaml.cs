@@ -35,5 +35,12 @@ namespace GOTKilled.Views
             viewModel = new ItemDetailViewModel(item);
             BindingContext = viewModel;
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+           await viewModel.GetAdditionalInfo();
+        }
     }
 }

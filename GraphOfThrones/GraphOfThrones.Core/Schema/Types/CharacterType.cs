@@ -18,6 +18,7 @@ namespace GraphOfThrones.Core.Schema.Types
             Field(c => c.characterImageThumb);
             Field(c => c.killed);
             Field(c => c.killedBy);
+            Field(c => c.nickname);
             Field<ListGraphType<EpisodeType>>("episodes", resolve: (context) => GetAllEpisodesForCharacter(episodeService, context.Source.characterName));
         }
 

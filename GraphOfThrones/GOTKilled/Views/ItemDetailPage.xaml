@@ -1,6 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="GOTKilled.Views.ItemDetailPage" Title="{Binding Title}">
-    <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
+    <StackLayout Spacing="20" Padding="15" IsVisible="{Binding ShowInfo}">
+        <Image Source="{Binding Item.characterImageFull}" HorizontalOptions="FillAndExpand" HeightRequest="200" Aspect="AspectFill" />
+        <Label Text="I'm still alive!" IsVisible="{Binding IsAlive}" FontSize="100" HorizontalOptions="CenterAndExpand" TextColor="Green" TextDecorations="Underline" RotationY="-10" RotationX="20" />
+        <Label Text="R.I.P." IsVisible="{Binding IsDead}" FontSize="100" HorizontalOptions="CenterAndExpand" TextColor="Red" />
+        <Label Text="At least I've killed some people:" IsVisible="{Binding ShowAtLeast}" FontSize="30" />
+        <Label Text="And I've killed some people:" IsVisible="{Binding ShowAnd}" FontSize="30" />
+        <ListView ItemsSource="{Binding Item.killed}" IsVisible="{Binding KilledPeople}">
+
+        </ListView>
     </StackLayout>
 </ContentPage>

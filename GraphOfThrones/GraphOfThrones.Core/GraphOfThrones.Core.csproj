@@ -11,7 +11,6 @@
     <PackageReference Include="GraphQL" Version="2.4.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Schema\" />
     <Folder Include="Schema\Types\" />
     <Folder Include="Schema\Queries\" />
